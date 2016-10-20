@@ -1,11 +1,14 @@
 #-*- coding: utf-8 -*-
-from subprocess import Popen, PIPE
-from config.py import *
+from subprocess import call
+from config import *
+
+'''
+Construct the database and tables
+'''
 
 user = SQL_USER
 passwd = SQL_PASS
 filename = BASE_DIR + "/setup/db.sql"
 
-process = Popen(['mysql', '-u', user, '-p', passwd],
-                stdout=PIPE, stdin=PIPE)
-output = process.communicate('source ' + filename)[0]
+def init():
+    call('mysql --user=root --password= < '+filename, shell=True)

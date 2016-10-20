@@ -6,15 +6,17 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import app.errors
 import sys
-
 import json
+import app.db
+
+# Iniciamos la base de datos
+app.db.init()
 
 app = Flask(__name__)
 app.config.from_object('config')
 db = SQLAlchemy(app)
 
 from app.model import Post
-from app.crossdomain import crossdomain
 
 # Home
 @app.route('/')
