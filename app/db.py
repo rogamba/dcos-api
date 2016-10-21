@@ -12,4 +12,4 @@ host = SQL_HOST
 filename = BASE_DIR + "/setup/db.sql"
 
 def init():
-    call('mysql --host='+ host +' --user=root --password= < '+filename, shell=True)
+    call('mysql --host='+ host +' --user=root --password='+ passwd +'  < '+filename, shell=True)
