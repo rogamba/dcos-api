@@ -33,7 +33,8 @@ def main():
 @cross_origin(origin="*")
 def not_found(error):
     return jsonify({
-        "error": "not found"
+        "error": "not found",
+        "route": request.path
     }), 400
 
 # HTTP Error handling
